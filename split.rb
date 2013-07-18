@@ -1,4 +1,3 @@
-
 EXAMPLE 1
   "12345678".split(/(...)/)
 
@@ -22,7 +21,7 @@ EXAMPLE 1
 
   5) so another [scrap,delimiter,remainder] setup is inserted in the result array:
 
-  ["",123,scrap2,delimiter2,remainder]  
+  ["",123,scrap2,delimiter2,remainder2]  
 
   6) filling it out gives:
 
@@ -30,7 +29,7 @@ EXAMPLE 1
 
   7) we continue evaluating remainder2
 
-  ["",123,"","456","78"]  nothing found in remainder2, so we leave it as is.    
+  ["",123,"","456","78"]  no matches in remainder2, so we leave it as is.    
 
   End result => "12345678".split(/(...)/) = ["","123","","456","78"] 
 
@@ -43,4 +42,4 @@ EXAMPLE 2
   ["","123","456"]
   ["","123",scrap2,(456),remainder2]  
   ["","123","","456",""]    # in this step remainder2 is "" as there is nothing to the right of last delimiter found
-  end=> ["","123","","456"]    # however, the #split method by default removes trailing empty strings before returning the result. this behavious can de disabled through the optional second argument to the split method.
+  End result=> ["","123","","456"]    # however, the #split method by default removes trailing empty strings before returning the result. this behavious can de disabled through the optional second argument to the split method.
