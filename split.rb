@@ -1,51 +1,46 @@
 
-
-=begin
-
 EXAMPLE 1
-"12345678".split(/(...)/)
+  "12345678".split(/(...)/)
 
-this is the general structure of the delimiter result array:  
-(note this is conceptual only, the source code doesnt work exactly like this)
+  this is the general structure of the delimiter result array:  
+  (note this is conceptual only, the source code doesnt work exactly like this)
 
-[scrap1,delimiter1, remainder1]
+  [ scrap1, delimiter1, remainder1 ]
 
-1)  start reading your number from left to right.  
-2) the first three characters match regex, so its labled a delimiter and put into the result array.  anything to the right of it is put in the remainder.
+  1)  start reading your number from left to right.  
+  2) the first three characters match regex, so its labled a delimiter and put into the result array.  anything to the right of it is put in the remainder.
 
-¨[scrap1,"123",45678]
+  [scrap1,"123",45678]
 
-3) The scrap is everything to the left of the newly found delimiter that has already been evaluated and didnt match (in this case, its "" because there is nothing to the left of 123)
+  3) The scrap is everything to the left of the newly found delimiter that has already been evaluated and didnt match (in this case, its "" because there is nothing to the left of 123)
 
-["","123",45678]
+  ["","123",45678]
 
-4) start looking for matches again, but this time start from the remainder.  another match is found in first 3 digits of remainder:
+  4) start looking for matches again, but this time start from the remainder.  another match is found in first 3 digits of remainder:
 
-["","123",(456)78]
+  ["","123",(456)78]
 
-5) so another [scrap,delimiter,remainder] setup is inserted in the result array:
+  5) so another [scrap,delimiter,remainder] setup is inserted in the result array:
 
-["",123,scrap2,delimiter2,remainder]  
+  ["",123,scrap2,delimiter2,remainder]  
 
-6) filling it out gives:
+  6) filling it out gives:
 
-["",123,"","456",78].  the scrap is again "" because there is nothing to the left of the 456 in the remainder1
+  ["",123,"","456",78].  the scrap is again "" because there is nothing to the left of the 456 in the remainder1
 
-7) we continue evaluating remainder2
+  7) we continue evaluating remainder2
 
-["",123,"","456","78"]  nothing found in remainder2, so we leave it as is.    
+  ["",123,"","456","78"]  nothing found in remainder2, so we leave it as is.    
 
-End result => "12345678".split(/(...)/) = ["","123","","456","78"] 
+  End result => "12345678".split(/(...)/) = ["","123","","456","78"] 
 
 
 EXAMPLE 2
-How about "123456".split(/(...)/)?
+  How about "123456".split(/(...)/)?
 
-start=> 
-[scrap1,"123",remainder1]
-["","123","456"]
-["","123",scrap2,(456),remainder2]  
-["","123","","456",""]    # in this step remainder2 is "" as there is nothing to the right of last delimiter found
-end=> ["","123","","456"]    # however, the #split method by default removes trailing empty strings before returning the result. this behavious can de disabled through the optional second argument to the split method.
-
-=end  
+  start=> 
+  [scrap1,"123",remainder1]
+  ["","123","456"]
+  ["","123",scrap2,(456),remainder2]  
+  ["","123","","456",""]    # in this step remainder2 is "" as there is nothing to the right of last delimiter found
+  end=> ["","123","","456"]    # however, the #split method by default removes trailing empty strings before returning the result. this behavious can de disabled through the optional second argument to the split method.
