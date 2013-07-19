@@ -1,7 +1,7 @@
 EXAMPLE 1
   "12345678".split(/(...)/)
 
-  this is the general structure of the delimiter result array:  
+  this is the general structure of the delimiter result array when using groups (i.e regex enclosed in "()"):  
   (note this is conceptual only, the source code doesnt work exactly like this)
 
   [ scrap1, delimiter1, remainder1 ]
