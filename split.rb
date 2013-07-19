@@ -21,15 +21,15 @@ EXAMPLE 1
 
   5) so another [scrap,delimiter,remainder] setup is inserted in the result array:
 
-  ["",123,scrap2,delimiter2,remainder2]  
+  ["","123",scrap2,delimiter2,remainder2]  
 
   6) filling it out gives:
 
-  ["",123,"","456",78].  the scrap is again "" because there is nothing to the left of the 456 in the remainder1
+  ["","123","","456",78].  the scrap is again "" because there is nothing to the left of the 456 in the remainder1
 
   7) we continue evaluating remainder2
 
-  ["",123,"","456","78"]  no matches in remainder2, so we leave it as is.    
+  ["","123","","456","78"]  no matches in remainder2, so we leave it as is.    
 
   End result => "12345678".split(/(...)/) = ["","123","","456","78"] 
 
