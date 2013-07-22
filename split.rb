@@ -46,6 +46,22 @@ start=>
 ["","123","456"]
 ["","123",scrap2,(456),remainder2]  
 ["","123","","456",""]    # in this step remainder2 is "" as there is nothing to the right of last delimiter found
-end=> ["","123","","456"]    # however, the #split method by default removes trailing empty strings before returning the result. this behavious can de disabled through the optional second argument to the split method.
+end=> ["","123","","456"]    # however, the #split method by default removes trailing empty strings before returning the result. this behaviour can de disabled with the optional second argument to the split method.
 
-=end  
+
+EXAMPLE 3
+How about without the parenthesis?  not using parenthesis means the matches wont be saved in the result array.   
+Lets try "12AB34QWR567".split(/\D+\d/), which checks for patterns of 1 or more letters following by a number.
+
+start=>
+[scrap1,delimter1,12(AB3)4QER567]   # fist match found
+["12","AB3",4QER567]  #Im filling out the delimter1 here, and we.ll remove them at the end (though you can remove them as you go)
+["12","AB3",4(QER5)67] #second delimter found
+["12","AB3","4","QER5","67"]   #no more matches, final step is to delete delimeters from result array
+end=> ["12","4","67"]
+
+=end 
+
+
+
+ 
